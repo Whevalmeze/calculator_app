@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    max-height: 100vh;
+    background: #000000e8;
+    color: #d6d6d6;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+.container{
+    max-width: 400px;
+    margin: auto;
+    background: #0d0d0d;
+    box-shadow: 0px -1px 10px 0px #0b0b0b;
+    min-height: 500px;
+    height: 600px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    width: 100%;
+}
+.inner-container.input{
+    height: 60%;
+}
+.inner-container.display {
+    padding: 5%;
+    height: 40%;
+    border-radius: 20px 20px 0px 0px;
+    background: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.flex-container, .row {
+    display: flex;
+}
+.flex-container{
+    flex-direction: column;
+}
+.row, .flex-container {
+    height: 100%;
+}
+.btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border: 0.1px solid #000;
+    border-collapse: collapse;    
+}
+.btn:hover{
+    background: #282828;
+}
+div.row5 >.btn:last-child:hover {
+    border-radius: 0 0 10px 0;
+}
+div.row5 >.btn:first-child:hover {
+    border-radius: 0 0 0 10px;
+}
+div.row5{
+    border-radius: 0px 20px;
+}
+div#equals-to{
+    border-radius: 0px 0px 20px;
+}
+div.btn-00{
+    border-radius: 0px 0px 0px 20px;
+}
+.btn.btn-green{
+    color: lime;
+}
+.btn.btn-green:hover{
+    background-color: lime;
+    color:#000;
+}
+h2.output {
+    font-size: 3rem;
+    color: white;
+}
+.align-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
