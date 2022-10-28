@@ -34,10 +34,11 @@ body {
     border-radius: 20px 20px 0px 0px;
     background: black;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-end;
     overflow: hidden;
+    width: 100%;
 }
 .flex-container, .col {
     display: flex;
@@ -97,6 +98,12 @@ div#division {
 h2.output {
     font-size: 3rem;
     color: white;
+    text-align: end;
+}
+h2.output.symbol {
+    font-size: 2.5rem;
+    color: rgb(183, 183, 183);
+    text-align: end;
 }
 .align-center {
     display: flex;
