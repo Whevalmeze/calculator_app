@@ -2,24 +2,25 @@
 
 
 let array = [];
+let input1 = '';
 let output = document.createElement('h2');
 let outputWrapper = document.querySelector('div.inner-container>div.output-wrapper');
 output.classList.add('output');
 outputWrapper.appendChild(output);
 output.innerText= "";
 
-let btn = document.querySelectorAll('div.row > div.btn');
-btn.forEach((currentBtn) => {
+let number = document.querySelectorAll('div.col > div.btn >button.number');
+number.forEach((currentBtn, index) => {
   currentBtn.addEventListener('click', () => {
-    output.innerText = currentBtn.innerText;
-    array.push(currentBtn.innerText);
-    console.log(array);
-  })
+    input1 += currentBtn.innerText;
+    output.innerText = input1;
+  });
 });
-array.forEach((item, index)=> {
-  if (item.match(/[0-9]/g)) { array.splice(index, 1, parseInt(item)) };
-});
-console.log(array)
+let clear = document.querySelector('div.col > div.btn.clear > button.align-center');
+function clearOutput(params) {
+  array = []; input1 = ''; output.innerText = input1;
+}
+clear.addEventListener('click', clearOutput);
 
 
 

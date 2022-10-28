@@ -37,14 +37,21 @@ body {
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+    overflow: hidden;
 }
-.flex-container, .row {
+.flex-container, .col {
     display: flex;
-}
-.flex-container{
     flex-direction: column;
 }
-.row, .flex-container {
+.flex-container {
+    flex-direction: row;
+}
+.col {
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.col, .flex-container {
     height: 100%;
 }
 .btn {
@@ -53,30 +60,37 @@ body {
     text-align: center;
     cursor: pointer;
     border: 0.1px solid #000;
-    border-collapse: collapse;    
+    border-collapse: collapse;  
+    height: 100%;  
 }
-.btn:hover{
+.btn:active{
     background: #282828;
 }
-div.row5 >.btn:last-child:hover {
-    border-radius: 0 0 10px 0;
-}
-div.row5 >.btn:first-child:hover {
-    border-radius: 0 0 0 10px;
-}
-div.row5{
+div.col5{
     border-radius: 0px 20px;
 }
-div#equals-to{
-    border-radius: 0px 0px 20px;
+div#equals-to>.align-center {
+    border-radius: 0 0 20px 0;
+    background-color: lime;
+    color: #000;
 }
-div.btn-00{
+div.btn-00>.align-center:active {
+    border-radius: 0 0 0 20px;
+}
+div.btn-0{
     border-radius: 0px 0px 0px 20px;
+}
+div#equals-to{
+    border-radius: 0px 0px 20px 0px;
+    height: 80%;
+}
+div#division {
+    height: 20%;
 }
 .btn.btn-green{
     color: lime;
 }
-.btn.btn-green:hover{
+.btn.btn-green:active{
     background-color: lime;
     color:#000;
 }
@@ -89,4 +103,13 @@ h2.output {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
+    text-align: inherit;
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    background: inherit;
 }
