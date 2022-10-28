@@ -1,29 +1,3 @@
-
-
-
-let array = [];
-let input1 = '';
-let output = document.createElement('h2');
-let outputWrapper = document.querySelector('div.inner-container>div.output-wrapper');
-output.classList.add('output');
-outputWrapper.appendChild(output);
-output.innerText= "";
-
-let number = document.querySelectorAll('div.col > div.btn >button.number');
-number.forEach((currentBtn, index) => {
-  currentBtn.addEventListener('click', () => {
-    input1 += currentBtn.innerText;
-    output.innerText = input1;
-  });
-});
-let clear = document.querySelector('div.col > div.btn.clear > button.align-center');
-function clearOutput(params) {
-  array = []; input1 = ''; output.innerText = input1;
-}
-clear.addEventListener('click', clearOutput);
-
-
-
 const add = function (a, b) {
   return a + b;
 };
@@ -67,5 +41,51 @@ const factorial = function(number) {
   };
   return answer;
 };
+
+
+let array = [];
+let input1 = '';
+
+let output = document.createElement('h2');
+let outputWrapper = document.querySelector('div.inner-container>div.output-wrapper');
+output.classList.add('output');
+outputWrapper.appendChild(output);
+output.innerText= "";
+
+let number = document.querySelectorAll('div.col > div.btn >button.number');
+number.forEach((currentBtn, index) => {
+  currentBtn.addEventListener('click', () => {
+    input1 += currentBtn.innerText;
+    output.innerText = input1;
+  });
+});
+
+let clear = document.querySelector('div.col > div.btn.clear > button.align-center');
+function clearOutput() {
+    array = []; input1 = ''; output.innerText = input1;
+}
+clear.addEventListener('click', clearOutput);
+
+let operation = document.querySelectorAll('div.col > div.btn >button.operation');
+operation.forEach((currentBtn) => {
+  currentBtn.addEventListener('click', () => {
+    array.push(input1);
+    output.innerText += currentBtn.innerText;
+  });
+});
+
+let equals = document.querySelectorAll('div.col > div.btn >button#equals-to');
+equals.addEventListener('click', () => {
+  array.push(input1);
+  output.innerText += equals.innerText;
+  let result = 0;
+  for (let input of array) {
+    result = sum(array)
+    output.innerText = result;
+  }
+});
+
+
+
 
 
