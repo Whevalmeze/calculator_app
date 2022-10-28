@@ -1,60 +1,74 @@
 // result is globally scoped
 let result = '';
-// addition function
-const add = function (a, b) {
-  return a + b;
-};
-// subtraction function
-const subtract = function(array) {
-  array.forEach((item, index)=> {
-    array.splice(index, 1, parseInt(item));
-  });
-  let answer = 0;
-	for (const item of array) {
-  if(typeof item == 'number') {answer -= item}
-  else answer = "Wrong Input";
-  };
-  return answer;
-};
 
-// sum function
-const sum = function(array) {
-  array.forEach((item, index)=> {
-    array.splice(index, 1, parseInt(item));
-  });
-  let answer = 0;
-	for (const item of array) {
-  if(typeof item == 'number') {answer += item}
-  else answer = "Wrong Input";
-  };
-  return answer;
-};
 
-// multiplication function
-const multiply = function(array) {
-  array.forEach((item, index)=> {
-    array.splice(index, 1, parseInt(item));
-  });
-  let answer = 1;
-	for (const item of array) {
-  if(typeof item == 'number') {answer *= item}
-  else answer = "Wrong Input";
-  };
-  return answer
-};
 
-// division function
-const divide = function(array) {
-  array.forEach((item, index)=> {
-    array.splice(index, 1, parseInt(item));
+// calc function peforms all operations at one call
+const calc = function (input, operation) {
+  var result;
+  // convert the items of the array to numbers
+  input.forEach((item, index) => {
+    input.splice(index, 1, parseInt(item));
   });
-  let answer = array[0];
-	for (const item of array) {
-  if(typeof item == 'number') {answer /= item}
-  else answer = "Wrong Input";
-  };
-  return answer
+  //remove all NaN
+  input.forEach((item, index) => {
+    if (item === NaN) input.splice(index, 1);
+  });
+  // check for the operation 
+  if (operation === "+") {
+    // sum function
+    const sum = function (array) {
+      let answer = 0;
+      for (const item of array) {
+        if (typeof item == 'number') { answer += item }
+      };
+      return answer;
+    };
+    //call the function
+    result = sum(input);
+  } else if (operation === "-") {
+      // subtraction function
+      const subtract = function(array) {
+        let answer = 0;
+        for (const item of array) {
+        if(typeof item == 'number') {answer -= item}
+        };
+        return answer;
+    };
+    //call the function
+    result = subtract(input);
+  } else if (operation === "÷") {
+      // division function
+      const divide = function(array) {
+        let answer = array[0];
+        for (const item of array) {
+        if(typeof item == 'number') {answer /= item}
+        };
+        return answer
+    }; 
+    // call the function
+    result = divide(input);
+  } else if (operation === "×") {
+      // multiplication function
+      const multiply = function(array) {
+        let answer = 1;
+        for (const item of array) {
+        if(typeof item == 'number') {answer *= item}
+        };
+        return answer
+    };
+    //call this function
+    result = multiply(input);
+  }; 
+  return result;
 };
+calc(['5', '4', '10'], '*');
+
+
+
+
+
+
 
 // other functions
 /*const power = function(number, power) {
@@ -117,15 +131,7 @@ operation.forEach((currentOperation) => {
     if (output.innerText.length !== 0 ) { output.innerText += currentOperation.innerText; clickCount = 0; };
     //  if the clickCount is 1, it means the button has already been clicked and operation is already displayed, it checks the current result and performs the chosen operation on the result
     // if (array.length >= 2) { 
-    //   if (currentOperation.innerText === "+") {
-    //     result = sum(array);
-    //   } else if (currentOperation.innerText === "-") {
-    //     result = subtract(array);  
-    //   } else if (currentOperation.innerText === "÷") {
-    //     result = divide(array);  
-    //   } else if (currentOperation.innerText === "×") {
-    //     result = multiply(array);  
-    //   } 
+
     //  };
   });
 });
