@@ -1,97 +1,69 @@
 // result is globally scoped
 let result = '';
 
-
-
 // calc function peforms all operations at one call
 const calc = function (input, operation) {
   var result;
   // convert the items of the array to numbers
   input.forEach((item, index) => {
-    input.splice(index, 1, parseInt(item));
+      input.splice(index, 1, parseInt(item));
   });
   //remove all NaN
   input.forEach((item, index) => {
-    if (item === NaN) input.splice(index, 1);
+      if (item === NaN) input.splice(index, 1);
   });
   // check for the operation 
   if (operation === "+") {
-    // sum function
-    const sum = function (array) {
-      let answer = 0;
-      for (const item of array) {
-        if (typeof item == 'number') { answer += item }
+      // sum function
+      const sum = function (array) {
+          let answer = 0;
+          for (const item of array) {
+              if (typeof item == 'number') { answer += item };
+          };
+
+          return answer;
       };
-      return answer;
-    };
-    //call the function
-    result = sum(input);
-  } else if (operation === "-") {
+      //call the function
+      result = sum(input);
+  } else if (operation === "−") {
       // subtraction function
-      const subtract = function(array) {
-        let answer = 0;
-        for (const item of array) {
-        if(typeof item == 'number') {answer -= item}
-        };
-        return answer;
-    };
-    //call the function
-    result = subtract(input);
+      const subtract = function (array) {
+          let answer = array[0];
+        for (i = 1; i < array.length; i++) {
+            answer -= array[i]
+          };
+          return answer;
+      };
+      //call the function
+      result = subtract(input);
   } else if (operation === "÷") {
       // division function
-      const divide = function(array) {
-        let answer = array[0];
-        for (const item of array) {
-        if(typeof item == 'number') {answer /= item}
-        };
-        return answer
-    }; 
-    // call the function
-    result = divide(input);
+      const divide = function (array) {
+          let answer = array[0];
+          for (i = 1; i < array.length; i++) {
+              answer /= arr[i]
+          };
+          return answer;
+      };
+      // call the function
+      result = divide(input);
   } else if (operation === "×") {
       // multiplication function
-      const multiply = function(array) {
-        let answer = 1;
-        for (const item of array) {
-        if(typeof item == 'number') {answer *= item}
-        };
-        return answer
-    };
-    //call this function
-    result = multiply(input);
-  }; 
+      const multiply = function (array) {
+          let answer = 1;
+          for (const item of array) {
+              if (typeof item == 'number') { answer *= item };
+          };
+          return answer;
+      };
+      //call this function
+      result = multiply(input);
+  };
   return result;
 };
-calc(['5', '4', '10'], '*');
 
 
-
-
-
-
-
-// other functions
-/*const power = function(number, power) {
-  let answer = 1;
-  for (let i = power; i > 0; i--) {
-    answer *= number;
-  };
-  return answer;
-};
-
-const factorial = function(number) {
-  let array = [];
-  for (let i = number; i > 0; i--) {
-    array.push(i); 
-  };
-  let answer = 1;
-  for (const item of array) {
-    answer *= item;
-  };
-  return answer;
-};*/
-
-// all operations are to be performed on the array 
+// all operations are performed on the array 
 let array = [];
 // input holds all numbers that would be pushed to the array
 let input = '';
