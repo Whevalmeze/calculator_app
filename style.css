@@ -113,3 +113,7 @@ h2.output {
     color: inherit;
     background: inherit;
 }
+div#equals-to>.align-center:active {
+    background: #0d0d0d;
+    color: lime;
+}
