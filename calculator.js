@@ -67,6 +67,7 @@ const calc = function (input, operation) {
 let array = [];
 // input holds all numbers that would be pushed to the array
 let input = '';
+// control maintains control flow between outputs
 let control = '';
 let currentValue = '';
 let nextValue = '';
@@ -80,15 +81,13 @@ output1.classList.add('output');
 output2.classList.add('output');;
 outputWrapper.appendChild(output1);
 outputWrapper.appendChild(output2);
-output1.innerText;
-output2.innerText;
-symbol.innerText;
+
 
 // number listens for clicks, displays it to the output
 let number = document.querySelectorAll('div.col > div.btn >button.number');
 number.forEach((currentNumber) => {
   currentNumber.addEventListener('click', () => {
-    let number = currentNumber.innerText; 
+    let number = currentNumber.innerText;
     if (control !== 'next') {
       currentValue += number; 
       input = currentValue;
@@ -111,21 +110,27 @@ function clearOutput() {
 clear.addEventListener('click', clearOutput);
 
 
-//  when you click an operation it checks if the array is currently empty,
+//  operation 
 let operation = document.querySelectorAll('div.col > div.btn >button.operation');
 operation.forEach((currentOperation) => {
   currentOperation.addEventListener('click', () => {
+    // push the input to the array
     array.push(input);
+    // this passes the input to the nextValue
     control = 'next';
+    // display the symbol 
     symbol.style.visibility = 'visible';
     symbol.innerText = currentOperation.innerText;
+    // check if the 
     if ((currentValue && input) !== '') {
       control = 'next'
-      //  this displays the symbol
       // if the input is not empty it calculates it
       result = calc(array, symbol.innerText);
+      // assign the result to the currentValue
       currentValue = result;
+      // display the result
       output1.innerText = result;
+      // clears the nextValue
       nextValue = '';
       output2.innerText = nextValue;
     };
@@ -134,12 +139,14 @@ operation.forEach((currentOperation) => {
 
 let equals = document.querySelector('div.col > div.btn#equals-to >button.align-center');
 equals.addEventListener('click', () => {
+  // push the input to the array
   array.push(input);
   result = calc(array, symbol.innerText);
   // clears all other values
   array = []; input = ''; output2.innerText = input; symbol.style.visibility = 'hidden'; nextValue = ''; currentValue = '';
   // then it displays it
   if (result) { output1.innerText = result; };
+  // pass the input to the currentValue variable
   control = '';
 });
 
